@@ -14,7 +14,7 @@ jobs:
       
       - name: Trying throw something
         id: test_one
-        run: echo
+        run: echo passed
         continue-on-error: true
 
       - name: Testing if failure is error
