@@ -17,12 +17,6 @@ jobs:
         run: exit 1
         continue-on-error: true
 
-      - name: capture state OUTCOME
-        run: echo "${{steps.test_one.outcome}}""
-
-      - name: capture state OUTPUTS
-        run: echo "${{steps.test_one.outputs}}"
-        
-        
-      - name: capture state CONCLUSION
-        run: echo "${{steps.test_one.conclusion}}"
+      - name: Testing if failure is error
+        if: ${{steps.test_one.outcome}} == 'failure'
+        run: 'echo test_one is error'
