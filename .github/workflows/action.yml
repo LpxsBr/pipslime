@@ -14,9 +14,13 @@ jobs:
       
       - name: Trying throw something
         id: test_one
-        run: exit 1
+        run: echo
         continue-on-error: true
 
       - name: Testing if failure is error
         if: ${{steps.test_one.outcome}} == 'failure'
         run: 'echo test_one is error'
+
+      - name: Testing if failure is error
+        if: ${{steps.test_one.outcome}} == 'success'
+        run: 'echo test_one not is error'
