@@ -13,4 +13,16 @@ jobs:
       - run: echo "runnig by ${{ github.actor }}"
       
       - name: Trying throw something
+        id: test_one
         run: exit 1
+        continue-on-error: true
+
+      - name: capture state OUTCOME
+        run: echo "${{steps.test_one.outcome}}""
+
+      - name: capture state OUTPUTS
+        run: echo "${{steps.test_one.outputs}}"
+        
+        
+      - name: capture state CONCLUSION
+        run: echo "${{steps.test_one.conclusion}}"
