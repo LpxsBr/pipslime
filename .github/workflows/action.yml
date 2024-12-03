@@ -1,0 +1,16 @@
+name: Action Runner For Test
+run-name: ${{ github.actor }} is testing this action
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Deploying:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "generating in ${{ runner.os }}"
+      - run: echo "runnig by ${{ github.actor }}"
+      
+      - name: Trying throw something
+        run: exit 1
